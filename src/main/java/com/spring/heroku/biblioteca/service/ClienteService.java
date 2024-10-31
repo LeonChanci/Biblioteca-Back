@@ -19,8 +19,6 @@ public class ClienteService {
 
     //---------------GET-----------------//
     public List<ClienteEntity> findAll(){
-        //Llamar al jdbcTemplate -> permite crear consultas SQL desde java y convertir
-        //El resultado en clases Java
         return this.clienteRepository.findAll();
     }
 
