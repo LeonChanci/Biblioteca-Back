@@ -1,6 +1,7 @@
 package com.spring.heroku.biblioteca.service;
 
 import com.spring.heroku.biblioteca.model.PrestamoEntity;
+import com.spring.heroku.biblioteca.model.interfaces.PrestamoSummary;
 import com.spring.heroku.biblioteca.model.repository.PrestamoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class PrestamoService {
     //---------------GET-----------------//
     public List<PrestamoEntity> findAll(){
         return this.prestamoRepository.findAll();
+    }
+
+    public List<PrestamoSummary> findPrestamoSummary(){
+        return this.prestamoRepository.findPrestamoSummary();
     }
 
     public PrestamoEntity get(int idPrestamo) {

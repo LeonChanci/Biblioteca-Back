@@ -1,6 +1,7 @@
 package com.spring.heroku.biblioteca.controller;
 
 import com.spring.heroku.biblioteca.model.PrestamoEntity;
+import com.spring.heroku.biblioteca.model.interfaces.PrestamoSummary;
 import com.spring.heroku.biblioteca.service.PrestamoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,11 @@ public class PrestamoController {
     @GetMapping
     public ResponseEntity<List<PrestamoEntity>> getAll(){
         return ResponseEntity.ok(this.prestamoService.findAll());
+    }
+
+    @GetMapping("/summary")
+    public ResponseEntity<List<PrestamoSummary>> getSummary() {
+        return new ResponseEntity<>(this.prestamoService.findPrestamoSummary(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
