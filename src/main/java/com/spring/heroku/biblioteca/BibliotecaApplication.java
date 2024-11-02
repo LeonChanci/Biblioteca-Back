@@ -13,4 +13,9 @@ public class BibliotecaApplication {
 		SpringApplication.run(BibliotecaApplication.class, args);
 	}
 
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+
 }
