@@ -12,8 +12,8 @@ The server. Navigate to `https://bibliotecaback-8bde82258989.herokuapp.com/`.
 MYSQL_DB_HOST=jdbc:mysql://localhost
 MYSQL_DB_PORT=3306;
 MYSQL_DB_NAME_SCHEME=biblioteca;
-MYSQL_DB_PASSWORDBD=admin;
-MYSQL_DB_USERNAME=root
+MYSQL_DB_PASSWORD=admin;
+MYSQL_DB_USERNAME=root;
 
 ## PROYECTO Biblioteca
 Desarrollar una solución web que le facilite mejor control sobre los datos para clientes y los libros que estos prestan guardando la información en base de datos.
