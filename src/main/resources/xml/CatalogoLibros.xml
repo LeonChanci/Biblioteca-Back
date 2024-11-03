@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+    <libro id="100">
+        <titulo>El Rey León</titulo>
+        <autores>
+            <autor>León Chancí</autor>
+        </autores>
+        <editorial>JAVA</editorial>
+        <contenido>
+            <descripcion>Es una historia...</descripcion>
+            <sinopsis>Hace 500 millones de años...</sinopsis>
+        </contenido>
+        <categorias>
+            <categoria id="1">Ficción</categoria>
+            <categoria id="2">Magia</categoria>
+        </categorias>
+        <fechapublicacion ano="2024" mes="12" dia="31"/>
+    </libro>
+</libros>
