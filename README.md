@@ -6,6 +6,7 @@ This project was compiled with Java 17
 ## Development server
 
 The server. Navigate to `http://localhost:9090/`.
+The server. Navigate to `https://bibliotecaback-8bde82258989.herokuapp.com/`.
 
 ## Enviroment Vars
 MYSQL_DB_HOST=jdbc:mysql://localhost
