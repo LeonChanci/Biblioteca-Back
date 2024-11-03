@@ -27,16 +27,16 @@ VALUES
 -- INSERT LIBROS
 INSERT INTO `biblioteca`.`libro` (`id_libro`, `nombre`, `descripcion`, `categoria`, `autor`, `ano`)
 VALUES
-(1,"La Maria", "Libro antiguo de drama", "Drama", "Jorse Isaak", "1969"),
-(2,"Harry Potter 1", "Libro Harry Potter 1", "Magia", "J. K. Rowling", "1997"),
-(3,"Harry Potter 2", "Libro Harry Potter 2", "Magia", "J. K. Rowling", "1998"),
-(4,"Harry Potter 3", "Libro Harry Potter 3", "Magia", "J. K. Rowling", "1999"),
+(1,"La Maria", "viaje a través de los paisajes exuberantes del Valle del Cauca, donde la naturaleza se convierte en un personaje más de la historia", "Novela", "Jorse Isaaks", "1967"),
+(2,"Harry Potter y la piedra filosofal", "Libro Harry Potter 1 - Inicios de Harry Potter", "Fantasía, Magia", "J. K. Rowling", "1997"),
+(3,"Harry Potter y la cámara secreta", "Libro Harry Potter 2 - Magia", "Fantasía, Magia", "J. K. Rowling", "1998"),
+(4,"Harry Potter y el prisionero de Azkaban", "Libro Harry Potter 3 - Familia", "Fantasía, Magia", "J. K. Rowling", "1999"),
 (5,"Erase una vez un corazón roto", "História de Evangeline", "Fantasía", "Stephenie Garber", "2022"),
 (6,"Las intermitencias de la muerte", "Un día las personas dejan de morir porque la muerte decide tomarse un tiempo.", "Novela", "José Saramago", "2005"),
-(7,"Romper el circulo", "Lily Bloom conoce a alguien y se da cuenta de que esta persona no es como pensaba", "Novela", "Collen Over", "2016"),
-(8,"El Principito", "Relato crítico hacia la vida adulta a través del viaje de un niño", "Novela Corta", "Antoine de Saint", "1943"),
-(9,"Todos estamos hechos de estrellas", "Habla sobre aquellos eventos post traumticos qué vive un matrimonio después de guerra", "Ficción", "Román Coleman", "2018"),
-(10,"Querido Nadie", "Historia de una joven  que vive un embarazo adolescente.", "Ficción", "Berlie Doherty", "2011");
+(7,"Romper el circulo", "Lily Bloom conoce a alguien y se da cuenta de que esta persona no es como pensaba. Debe romper el circulo de maltrato.", "Novela", "Collen Over", "2016"),
+(8,"El Principito", "Relato crítico hacía la vida adulta a través del viaje de un niño. Reflexionando sobre amistad, amor, la soledad, la Pérdida y el sentido de la vida.", "Novela Corta", "Antoine de Saint", "1943"),
+(9,"Todos estamos hechos de estrellas", "Habla sobre aquellos eventos post traumticos qué vive un matrimonio después de la guerra de Afganistán y como los afecta en sus vidas.", "Ficción", "Román Coleman", "2018"),
+(10,"Querido Nadie", "Historia de una joven  que vive un embarazo adolescente. Cuenta con sensibilidad lo que pasa en su vida y los cambios que ocurren.", "Ficción", "Berlie Doherty", "2011");
 
 -- INSERT PRESTAMOS
 INSERT INTO `biblioteca`.`prestamo` (`id_prestamo`, `id_cliente`, `id_libro`, `fecha_inicio`, `fecha_fin`)

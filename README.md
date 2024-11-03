@@ -7,6 +7,13 @@ This project was compiled with Java 17
 
 The server. Navigate to `http://localhost:9090/`.
 
+## Enviroment Vars
+MYSQL_DB_HOST=jdbc:mysql://localhost
+MYSQL_DB_PORT=3306;
+MYSQL_DB_NAME_SCHEME=biblioteca;
+MYSQL_DB_PASSWORDBD=admin;
+MYSQL_DB_USERNAME=root
+
 ## PROYECTO Biblioteca
 Desarrollar una solución web que le facilite mejor control sobre los datos para clientes y los libros que estos prestan guardando la información en base de datos.
 Información sobre el clientes (Cedula, Nombres, Apellidos, Dirección, Teléfono)

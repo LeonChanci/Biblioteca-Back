@@ -10,7 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 DROP SCHEMA IF EXISTS `biblioteca` ;
 
 -- -----------------------------------------------------
--- Schema granja
+-- Schema biblioteca
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `biblioteca` DEFAULT CHARACTER SET utf8 ;
 USE `biblioteca` ;
