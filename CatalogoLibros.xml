@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <libros>
     <libro id="100">
-        <titulo>El Rey León</titulo>
+        <titulo>Harry Potter y la Piedra Filosofal</titulo>
         <autores>
-            <autor>León Chancí</autor>
+            <autor>J. K. Rowling</autor>
         </autores>
-        <editorial>JAVA</editorial>
+        <editorial>Bloomsbury Publishing</editorial>
         <contenido>
-            <descripcion>Es una historia...</descripcion>
-            <sinopsis>Hace 500 millones de años...</sinopsis>
+            <descripcion>Harry Potter recibe una carta que cambiará su vida para siempre. En ella le comunican que ha sido aceptado como alumno en el colegio interno Hogwarts de magia y hechicería.</descripcion>
+            <sinopsis>Harry Potter se ha quedado huérfano y vive en casa de sus abominables tíos y del insoportable primo Dudley. Se siente muy triste y solo, hasta que un buen día recibe una carta que cambiará su vida para siempre. En ella le comunican que ha sido aceptado como alumno en el colegio interno Hogwarts de magia y hechicería.</sinopsis>
         </contenido>
         <categorias>
             <categoria id="1">Ficción</categoria>
             <categoria id="2">Magia</categoria>
         </categorias>
-        <fechapublicacion ano="2024" mes="12" dia="31"/>
+        <fechapublicacion ano="1997" mes="12" dia="31"/>
+    </libro>
+    <libro id="200">
+        <titulo>El Principito</titulo>
+        <autores>
+            <autor>Antoine de Saint-Exupéry</autor>
+        </autores>
+        <editorial>Gran Travesía</editorial>
+        <contenido>
+            <descripcion>Un niño príncipe que vive en un pequeño asteroide y que cae a la Tierra, donde conoce a un piloto varado en el desierto. Hablan en clave poéticasobre filosofía, crítica social y el amor.</descripcion>
+            <sinopsis>El Principito narra la historia de un niño príncipe que vive en un pequeño asteroide y que cae a la Tierra, donde conoce a un piloto varado en el desierto. Ambos entablan una conversación en clave poética donde hablan de filosofía, de crítica social, del amor, del honor y de mucho de lo que nos hace humanos.</sinopsis>
+        </contenido>
+        <categorias>
+            <categoria id="1">Ficción</categoria>
+            <categoria id="3">Infantil</categoria>
+        </categorias>
+        <fechapublicacion ano="1943" mes="04" dia="06"/>
     </libro>
 </libros>

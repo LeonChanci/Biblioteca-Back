@@ -53,9 +53,16 @@ public class LibraryXMLService {
                     //AUTORES
                     NodeList listAutores = elementLibro.getElementsByTagName("autores");
                     for (int j = 0; j < listAutores.getLength(); j++) {
-                        Node nodeAutor = listAutores.item(j);
-                        Element elementAutor = (Element) nodeAutor;
-                        autor = elementAutor.getElementsByTagName("autor").item(j).getFirstChild().getNodeValue();
+                        Node nodeAutores = listAutores.item(j);
+                        Element elementAutores = (Element) nodeAutores;
+
+                        NodeList listAutor = elementAutores.getElementsByTagName("autor");
+                        for (int k = 0; k < listAutor.getLength(); k++) {
+                            Node nodeAutor = listAutor.item(k);
+                            Element elementAutor = (Element) nodeAutor;
+                            autor = autor+elementAutor.getFirstChild().getNodeValue()+" - ";
+                        }
+                        autor = autor.substring(0, autor.length() - 3);
                     }
 
                     //CONTENIDOS
@@ -75,11 +82,16 @@ public class LibraryXMLService {
                         for (int k = 0; k < listCategoria.getLength(); k++) {
                             Node nodeCategoria = listCategoria.item(k);
                             Element elementCategoria = (Element) nodeCategoria;
-                            categoria = categoria+","+elementCategoria.getFirstChild().getNodeValue();
+                            categoria = categoria+elementCategoria.getFirstChild().getNodeValue()+" - ";
                         }
+                        categoria = categoria.substring(0, categoria.length() - 3);
                     }
 
                     //FECHA
+                    NodeList listFecha = elementLibro.getElementsByTagName("fechapublicacion");
+                    Node nodeCategorias = listFecha.item(0);
+                    Element elementFecha = (Element) nodeCategorias;
+                    ano = elementFecha.getAttribute("ano");
                 }
                 LibroEntity newBook = new LibroEntity();
                 newBook.setIdLibro(Integer.parseInt(id));
