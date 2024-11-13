@@ -16,8 +16,6 @@ import java.util.List;
 @Service
 public class LibraryXMLService {
 
-    private List<LibroEntity> myListBooks = new ArrayList<>();
-
     public Document getFileXml() {
         Document docXML = null;
         try {
@@ -110,7 +108,6 @@ public class LibraryXMLService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        myListBooks = listBooks;
         return listBooks;
     }
 
@@ -178,7 +175,8 @@ public class LibraryXMLService {
         if (anoPublicacion == 0 || anoPub.length() <4) {
             return findBooksFromXML();
         } else {
-            for (LibroEntity book: myListBooks) {
+            List<LibroEntity> listBooks = findBooksFromXML();
+            for (LibroEntity book: listBooks) {
                 if(book.getAno().equals(anoPub)){
                     LibroEntity newBook = new LibroEntity();
                     newBook.setIdLibro(book.getIdLibro());
@@ -194,7 +192,6 @@ public class LibraryXMLService {
         if (listBooksFilter.isEmpty()) {
             listBooksFilter = findBooksFromXML();
         }
-        myListBooks = listBooksFilter;
         return listBooksFilter;
     }
 }
