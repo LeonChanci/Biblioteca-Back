@@ -15,23 +15,28 @@ import java.util.List;
 
 @Service
 public class LibraryXMLService {
-    public List<LibroEntity> findBooksFromXML() {
-        String valor = "";
-        List<LibroEntity> listBooks = new ArrayList<>();
+
+    private List<LibroEntity> myListBooks = new ArrayList<>();
+
+    public Document getFileXml() {
+        Document docXML = null;
         try {
             File fileXml = new File("CatalogoLibros.xml");
-
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            Document docXML = docBuilder.parse(fileXml);
+            docXML = docBuilder.parse(fileXml);
             docXML.getDocumentElement().normalize();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return docXML;
+    }
 
-            System.out.println("Elemento raíz: " + docXML.getDocumentElement().getNodeName());
-            valor = "Elemento raíz: " + docXML.getDocumentElement().getNodeName();
-
+    public List<LibroEntity> findBooksFromXML() {
+        List<LibroEntity> listBooks = new ArrayList<>();
+        try {
+            Document docXML = getFileXml();
             NodeList listLibros = docXML.getElementsByTagName("libro");
-
-
             for (int i = 0; i < listLibros.getLength(); i++) {
                 String id = "";
                 String titulo = "";
@@ -89,8 +94,8 @@ public class LibraryXMLService {
 
                     //FECHA
                     NodeList listFecha = elementLibro.getElementsByTagName("fechapublicacion");
-                    Node nodeCategorias = listFecha.item(0);
-                    Element elementFecha = (Element) nodeCategorias;
+                    Node nodeFechapublicacion = listFecha.item(0);
+                    Element elementFecha = (Element) nodeFechapublicacion;
                     ano = elementFecha.getAttribute("ano");
                 }
                 LibroEntity newBook = new LibroEntity();
@@ -102,11 +107,94 @@ public class LibraryXMLService {
                 newBook.setAno(ano);
                 listBooks.add(newBook);
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        myListBooks = listBooks;
         return listBooks;
+    }
+
+    public int findTotalBooksWithMoreOneCategory() {
+        int countTotal = 0;
+        Document docXML = getFileXml();
+        NodeList listLibros = docXML.getElementsByTagName("libro");
+        for (int i = 0; i < listLibros.getLength(); i++) {
+            Node nodeLibro = listLibros.item(i);
+            if (nodeLibro.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementLibro = (Element) nodeLibro;
+                //CATEGORIAS
+                NodeList listCategorias = elementLibro.getElementsByTagName("categorias");
+                for (int j = 0; j < listCategorias.getLength(); j++) {
+                    int countCategories = 0;
+                    Node nodeCategorias = listCategorias.item(j);
+                    Element elementCategorias = (Element) nodeCategorias;
+
+                    NodeList listCategoria = elementCategorias.getElementsByTagName("categoria");
+                    for (int k = 0; k < listCategoria.getLength(); k++) {
+                        Node nodeCategoria = listCategoria.item(k);
+                        Element elementCategoria = (Element) nodeCategoria;
+                        countCategories ++;
+                    }
+                    if (countCategories>1) {
+                        countTotal ++;
+                    }
+                }
+            }
+        }
+        return countTotal;
+    }
+
+    public Double findPercentageBooksAfterYear2000() {
+        double countBooks = 0;
+        double countAfterYear = 0;
+        double percentage = 0;
+        Document docXML = getFileXml();
+        NodeList listLibros = docXML.getElementsByTagName("libro");
+        for (int i = 0; i < listLibros.getLength(); i++) {
+            countBooks ++;
+            int ano = 1999;
+            Node nodeLibro = listLibros.item(i);
+            if (nodeLibro.getNodeType() == Node.ELEMENT_NODE) {
+                Element elementLibro = (Element) nodeLibro;
+
+                //FECHA
+                NodeList listFecha = elementLibro.getElementsByTagName("fechapublicacion");
+                Node nodeFechapublicacion = listFecha.item(0);
+                Element elementFecha = (Element) nodeFechapublicacion;
+                ano = Integer.parseInt(elementFecha.getAttribute("ano"));
+
+                if (ano > 2000 ) {
+                    countAfterYear ++;
+                }
+            }
+        }
+        percentage = (countAfterYear/countBooks)*100;
+        return percentage;
+    }
+
+    public List<LibroEntity> findBooksByAttribute(int anoPublicacion) {
+        String anoPub = String.valueOf(anoPublicacion);
+        List<LibroEntity> listBooksFilter = new ArrayList<>();
+        if (anoPublicacion == 0 || anoPub.length() <4) {
+            return findBooksFromXML();
+        } else {
+            for (LibroEntity book: myListBooks) {
+                if(book.getAno().equals(anoPub)){
+                    LibroEntity newBook = new LibroEntity();
+                    newBook.setIdLibro(book.getIdLibro());
+                    newBook.setNombre(book.getNombre());
+                    newBook.setAutor(book.getAutor());
+                    newBook.setDescripcion(book.getDescripcion());
+                    newBook.setCategoria(book.getCategoria());
+                    newBook.setAno(book.getAno());
+                    listBooksFilter.add(newBook);
+                }
+            }
+        }
+        if (listBooksFilter.isEmpty()) {
+            listBooksFilter = findBooksFromXML();
+        }
+        myListBooks = listBooksFilter;
+        return listBooksFilter;
     }
 }

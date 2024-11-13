@@ -24,12 +24,43 @@
         <editorial>Gran Travesía</editorial>
         <contenido>
             <descripcion>Un niño príncipe que vive en un pequeño asteroide y que cae a la Tierra, donde conoce a un piloto varado en el desierto. Hablan en clave poéticasobre filosofía, crítica social y el amor.</descripcion>
-            <sinopsis>El Principito narra la historia de un niño príncipe que vive en un pequeño asteroide y que cae a la Tierra, donde conoce a un piloto varado en el desierto. Ambos entablan una conversación en clave poética donde hablan de filosofía, de crítica social, del amor, del honor y de mucho de lo que nos hace humanos.</sinopsis>
+            <sinopsis>Narra la historia de un niño príncipe que vive en un pequeño asteroide y que cae a la Tierra, donde conoce a un piloto varado en el desierto. Ambos entablan una conversación en clave poética donde hablan de filosofía, crítica social, amor y del honor.</sinopsis>
         </contenido>
         <categorias>
             <categoria id="1">Ficción</categoria>
             <categoria id="3">Infantil</categoria>
         </categorias>
         <fechapublicacion ano="1943" mes="04" dia="06"/>
+    </libro>
+    <libro id="300">
+        <titulo>Satanás</titulo>
+        <autores>
+            <autor>Mario Mendoza</autor>
+        </autores>
+        <editorial>Editorial Planeta</editorial>
+        <contenido>
+            <descripcion>Una mujer hermosa, un pintor endemoniado y un sacerdote saca demonios, historias en torno a Campo Elías, héroe de la guerra, quien desciende al infierno volviendose un ángel exterminador.</descripcion>
+            <sinopsis>Una mujer hermosa e ingenua, un pintor endemoniado y un sacerdote que se enfrenta una posesión demoníaca, historias contadas en torno a Campo Elías, héroe de la guerra, quien desciende al infierno obsesionado por la dualidad entre el bien y el mal.</sinopsis>
+        </contenido>
+        <categorias>
+            <categoria id="4">Novela</categoria>
+        </categorias>
+        <fechapublicacion ano="2002" mes="10" dia="31"/>
+    </libro>
+    <libro id="400">
+        <titulo>Cien Años de Soledad</titulo>
+        <autores>
+            <autor>Gabriel García Márquez</autor>
+        </autores>
+        <editorial>Editorial Sudamericana</editorial>
+        <contenido>
+            <descripcion>Cien años de soledad cuenta la historia de la familia Buendía que viven en un pueblo ficticio llamado Macondo, la novela trata temas como la soledad, el amor.</descripcion>
+            <sinopsis>Narra la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo. La novela aborda temas como la soledad, el amor, y la repetición de la historia, con un estilo que mezcla lo real y lo fantástico, característico del realismo mágico.</sinopsis>
+        </contenido>
+        <categorias>
+            <categoria id="4">Novela</categoria>
+            <categoria id="5">Realismo Mágico</categoria>
+        </categorias>
+        <fechapublicacion ano="1967" mes="06" dia="05"/>
     </libro>
 </libros>

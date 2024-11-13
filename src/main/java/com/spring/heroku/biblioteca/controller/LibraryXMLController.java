@@ -1,15 +1,10 @@
 package com.spring.heroku.biblioteca.controller;
 
-import com.spring.heroku.biblioteca.model.ClienteEntity;
 import com.spring.heroku.biblioteca.model.LibroEntity;
-import com.spring.heroku.biblioteca.service.ClienteService;
 import com.spring.heroku.biblioteca.service.LibraryXMLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +19,23 @@ public class LibraryXMLController {
         this.libraryXMLService = libraryXMLService;
     }
 
-    @GetMapping
+    @GetMapping("/books")
     public ResponseEntity<List<LibroEntity>> getBooksFromXML(){
         return ResponseEntity.ok(this.libraryXMLService.findBooksFromXML());
+    }
+
+    @GetMapping("/totalValue")
+    public ResponseEntity<Integer> getTotalBooksWithMoreOneCategory(){
+        return ResponseEntity.ok(this.libraryXMLService.findTotalBooksWithMoreOneCategory());
+    }
+
+    @GetMapping("/percentageValue")
+    public ResponseEntity<Double> getPercentageBooksAfterYear2000(){
+        return ResponseEntity.ok(this.libraryXMLService.findPercentageBooksAfterYear2000());
+    }
+
+    @GetMapping("/filterByAttribute/{anoPublicacion}")
+    public ResponseEntity<List<LibroEntity> > getBooksByAttribute(@PathVariable("anoPublicacion") int anoPublicacion){
+        return ResponseEntity.ok(this.libraryXMLService.findBooksByAttribute(anoPublicacion));
     }
 }
